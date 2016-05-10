@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +35,23 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // get the data:
+        // example of to values.
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String value = extras.getString("Extra String");
+            Log.i("TAG",value);
+            String value2 = extras.getString("Extra String2");
+            Log.i("TAG",value);
+
+            TextView view = (TextView) findViewById(R.id.editDeparture);
+            view.setText(value);
+
+            TextView view2 = (TextView) findViewById(R.id.headSign);
+            view2.setText(value2);
+
+        }
 
 
     }

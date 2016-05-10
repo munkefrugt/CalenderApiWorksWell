@@ -30,4 +30,24 @@
         android:id="@+id/buttontoGson"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="171dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="editDeparture"
+        android:id="@+id/editDeparture"
+        android:layout_alignTop="@+id/alarmTid"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="47dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="headSign"
+        android:id="@+id/headSign"
+        android:layout_below="@+id/editDeparture"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="37dp" />
 </RelativeLayout>

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CalendarvirkerFærdig (8maj).iml" filepath="$PROJECT_DIR$/CalendarvirkerFærdig (8maj).iml" />
+      <module fileurl="file://$PROJECT_DIR$/CalenderenPlusDirectionsVirkerMedDestinationOgEventStart 10maj.iml" filepath="$PROJECT_DIR$/CalenderenPlusDirectionsVirkerMedDestinationOgEventStart 10maj.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

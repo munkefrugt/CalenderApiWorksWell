@@ -1,5 +1,6 @@
 package com.example.calendarquickstart2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -18,7 +19,7 @@ public class Gson extends AppCompatActivity {
     Response responseObj;
 
     String OriginInputByUser= "valby st";
-    String destination= "Dyssegård st";
+    String destination;//= "Dyssegård st";
 
     String mode="transit";
     String departure_time;//= String.valueOf(System.currentTimeMillis()+1000000);
@@ -91,10 +92,10 @@ public class Gson extends AppCompatActivity {
             */
 
         }
-
+        //"+finalDetination+"
         Log.i("destination test", "onCreate: destination test"+destination);
         //String urltest2 = "https://maps.googleapis.com/maps/api/directions/json?origin=enghave%20station&destination=emdrup&mode=transit&arrival_time="+eventTimeMillisAsString +"&key=AIzaSyAdsyGsiSh_nIIVuC7LAe27eE6r2mMBuK4";
-        String url = "https://maps.googleapis.com/maps/api/directions/json?origin=valby st&destination="+finalDetination+"&arrival_time="+enventTimeinSec+"&mode=transit&key=AIzaSyDPx6zlmEEAbqUdX8Gr7tlxNips9Ld5cI4";
+        String url = "https://maps.googleapis.com/maps/api/directions/json?origin=valby st&destination="+destination+"&arrival_time="+enventTimeinSec+"&mode=transit&key=AIzaSyDPx6zlmEEAbqUdX8Gr7tlxNips9Ld5cI4";
         Log.i("URL test", "onCreate: " + url);
 
         // MAKE API CALLS
@@ -114,6 +115,9 @@ public class Gson extends AppCompatActivity {
                 // return this the departre tme to the alarm clock.
                 departure_time =responseObj.getRoutes().get(0).getLegs().get(0).getDeparture_time().getText();
                 Log.i("departure_time", "Gson onSuccess: departure_time "+ departure_time);
+                //TextView view = (TextView) findViewById(R.id.editDeparture);
+                //view.setText(departure_time);
+
 
                 // check if its the right end adress.
                 String destinationOutPutCheck =responseObj.getRoutes().get(0).getLegs().get(0).getEnd_address();
@@ -126,6 +130,20 @@ public class Gson extends AppCompatActivity {
                 //arrival_time = String.valueOf(responseObj.getRoutes().get(0).getLegs().get(0).getArrival_time().getValue());
 
                 Log.i("Gson startAdress", startAdress);
+
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                Log.i("TAG", "Gson transfer to Main"+departure_time);
+
+                // lad være med at ændre på "Extra String",
+
+                intent.putExtra("Extra String",departure_time);
+                String valueName2="Hello again!";
+                intent.putExtra("Extra String2",valueName2);
+
+                // shtart the new activity
+                startActivity(intent);
+
             }
 
             @Override

@@ -174,7 +174,19 @@ public class Calendar extends Activity
                 //intent.putExtra("Extra String",valueName);
 
                 // shtart the new activity
-                startActivity(intentGson);
+
+                if(destination != null)
+                {
+                    Log.i("destination set", "get departure time from google API");
+
+                    startActivity(intentGson);
+
+                }
+                else
+                {
+                    Log.i("no destination", "set no departure time to event start time");
+                    long departuretimeWithNoLocation= eventTimeMillis;
+                }
 
             }
         });
@@ -479,7 +491,12 @@ public class Calendar extends Activity
                         //String.format("%s  ", event.getLocation()));
                 //String  = event.getLocation();
                 //DateTime StartTimeOfEvent = toString(start);
+                if(event.getLocation() != null)
+                {
                 destination = event.getLocation();
+                Log.i("destination", destination);
+                }
+
                 NextEventStarttime = event.getStart().getDateTime();
                 eventName=event.getSummary();
                 // checks:
@@ -487,7 +504,6 @@ public class Calendar extends Activity
                 Log.i("TAG", "getDataFromApi: event.getStart()"+  event.getStart());
                 Log.i("TAG", "getDataFromApi: event.getStart().getDate(): "+ event.getStart().getDate());
                 Log.i("TAG", "getDataFromApi: event.getStart().getDateTime(): "+ event.getStart().getDateTime());
-                Log.i("destination", destination);
                 Log.i("NextEventStarttime", String.valueOf(NextEventStarttime));
 
 
@@ -508,7 +524,7 @@ public class Calendar extends Activity
             java.util.Calendar c = java.util.Calendar.getInstance();
 
             // here the value is set to 27 hours (1 day and 3 hours)
-            c.add(java.util.Calendar.DAY_OF_MONTH, 2); // milliseceonds to midnight
+            c.add(java.util.Calendar.DAY_OF_MONTH, 1); // milliseceonds to midnight
             c.add(java.util.Calendar.HOUR_OF_DAY, 3);// change this value to change the time of the day now its set to 3.00 am.
             c.set(java.util.Calendar.MINUTE, 0);
             c.set(java.util.Calendar.SECOND, 0);
