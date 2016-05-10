@@ -31,7 +31,7 @@
             android:label="Calendar"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".Gson"
+            android:name=".Directions"
             android:label="@string/title_activity_gson"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">

@@ -15,39 +15,92 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="AlarmTid"
-        android:id="@+id/alarmTid"
-        android:layout_marginBottom="174dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Press to get to Gson"
-        android:onClick="goToGsonActivity"
-        android:id="@+id/buttontoGson"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="171dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="editDeparture"
-        android:id="@+id/editDeparture"
-        android:layout_alignTop="@+id/alarmTid"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="47dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="headSign"
         android:id="@+id/headSign"
-        android:layout_below="@+id/editDeparture"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="37dp" />
+        android:layout_below="@+id/arrival_time_directions"
+        android:layout_alignEnd="@+id/textView5" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="origin"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/textView5"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="destination"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="line name"
+        android:id="@+id/lineShortName"
+        android:layout_alignTop="@+id/headSign"
+        android:layout_toStartOf="@+id/textView3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Directions arrival time"
+        android:id="@+id/arrival_time_directions"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/lineShortName"
+        android:layout_marginTop="39dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="event name"
+        android:id="@+id/textView7"
+        android:layout_below="@+id/textView4"
+        android:layout_alignStart="@+id/textView4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="EventTimeBegin"
+        android:id="@+id/textView5"
+        android:layout_below="@+id/headSign"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="53dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="eventEndTime"
+        android:id="@+id/textView8"
+        android:layout_below="@+id/textView7"
+        android:layout_alignEnd="@+id/textView4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="edit_departure"
+        android:id="@+id/edit_departure"
+        android:layout_below="@+id/headSign"
+        android:layout_alignStart="@+id/textView8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="duration"
+        android:id="@+id/duration"
+        android:layout_below="@+id/edit_departure"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

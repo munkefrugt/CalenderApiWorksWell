@@ -58,9 +58,9 @@ public class StorageOfVariablesLocationEct extends AppCompatActivity {
         } catch(InterruptedException ex) {
             Thread.currentThread().interrupt();
         }
-        Log.i("Tag", "onCreate: Call Gson");
+        Log.i("Tag", "onCreate: Call Directions");
         // call the gson class
-        Intent intentGson = new Intent(getApplicationContext(), Gson.class);
+        Intent intentGson = new Intent(getApplicationContext(), Directions.class);
 
         // send data to the gson class
         String origin= "enghave";

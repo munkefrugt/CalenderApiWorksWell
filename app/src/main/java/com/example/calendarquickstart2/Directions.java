@@ -13,8 +13,8 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import cz.msebera.android.httpclient.Header;
 
-public class Gson extends AppCompatActivity {
-
+public class Directions extends AppCompatActivity {
+    // test api with this url: https://maps.googleapis.com/maps/api/directions/json?origin=enghave%20station&destination=emdrup&mode=transit&key=AIzaSyAdsyGsiSh_nIIVuC7LAe27eE6r2mMBuK4
     ListView listView;
     Response responseObj;
 
@@ -57,8 +57,13 @@ public class Gson extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null)
         {
+
+            //eventName = extras.getString("");
+            //Log.i("TAG", eventName);
+
             eventName = extras.getString("eventName");
             Log.i("TAG", eventName);
+
             eventTimeMillis = extras.getLong("eventTimeMillis");
             // convert long to string:
             eventTimeMillisAsString = String.valueOf(eventTimeMillis);
@@ -66,19 +71,19 @@ public class Gson extends AppCompatActivity {
             Log.i("TAG", String.valueOf(eventTimeMillis));
             destination = extras.getString("destination");
             Log.i("TAG",destination);
-            finalDetination=splitdestinationString(destination);
-            Log.i("tag", "Gson onCreate: finalDetination :"+ finalDetination);
-            Log.i("tag", "Gson onCreate: eventTimeMillis from calendar API:"+ eventTimeMillis);
+            //finalDetination=splitdestinationString(destination);
+            //Log.i("tag", "Directions onCreate: finalDetination :"+ finalDetination);
+            Log.i("tag", "Directions onCreate: eventTimeMillis from calendar API:"+ eventTimeMillis);
 
             // convert the type long to string so it can be used in the URL, and devide by 1000, because
             // it needs seconds not milliSec.
             enventTimeinSec = String.valueOf(eventTimeMillis/1000);
-            Log.i("tag", "Gson onCreate: enventTimeinSec from calendar API:"+ enventTimeinSec);
+            Log.i("tag", "Directions onCreate: enventTimeinSec from calendar API:"+ enventTimeinSec);
 
             //check and compare http://www.epochconverter.com/
 
-            Log.i("tag", "Gson onCreate: destination from calendar API test1:"+destination);
-            Log.i("tag", "Gson onCreate: eventName:"+eventName);
+            Log.i("tag", "Directions onCreate: destination from calendar API test1:"+destination);
+            Log.i("tag", "Directions onCreate: eventName:"+eventName);
 
             // extract the time from the eventTimeMillis (ex. eventTimeMillis:2016-05-09T07:00:00.000+02:00 - to 07:00
 
@@ -100,7 +105,7 @@ public class Gson extends AppCompatActivity {
 
         // MAKE API CALLS
         client = new AsyncHttpClient();
-        client.get(Gson.this, url, new AsyncHttpResponseHandler() {
+        client.get(Directions.this, url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
 
@@ -113,33 +118,45 @@ public class Gson extends AppCompatActivity {
                 startAdress =responseObj.getRoutes().get(0).getLegs().get(0).getStart_address();
 
                 // return this the departre tme to the alarm clock.
+                String lineShortName =responseObj.getRoutes().get(0).getLegs().get(0).getSteps().get(0).getTransit_details().getLine().getShort_name();
+                Log.i("departure_time", "Directions onSuccess: departure_time "+ lineShortName);
+
                 departure_time =responseObj.getRoutes().get(0).getLegs().get(0).getDeparture_time().getText();
-                Log.i("departure_time", "Gson onSuccess: departure_time "+ departure_time);
+                Log.i("departure_time", "Directions onSuccess: departure_time "+ departure_time);
+
                 //TextView view = (TextView) findViewById(R.id.editDeparture);
                 //view.setText(departure_time);
 
 
                 // check if its the right end adress.
                 String destinationOutPutCheck =responseObj.getRoutes().get(0).getLegs().get(0).getEnd_address();
-                Log.i("destinationOutPutCheck", "Gson : destinationOutPutCheck "+ destinationOutPutCheck);
+                Log.i("destinationOutPutCheck", "Directions : destinationOutPutCheck "+ destinationOutPutCheck);
 
+                //
+                String headSign =responseObj.getRoutes().get(0).getLegs().get(0).getSteps().get(0).getTransit_details().getHeadsign();
+                Log.i("headSign", "onSuccess: headdSign"+headSign);
 
+                 String duration = String.valueOf(responseObj.getRoutes().get(0).getLegs().get(0).getSteps().get(0).getDuration().getText());
+                Log.i("duration", "onSuccess: headdSign"+duration);
 
                 //departure_time =responseObj.getRoutes().get(0).getLegs().get(0).getEnd_address();
                 // husk man kan få arrival time i unix eller i am/pm
-                //arrival_time = String.valueOf(responseObj.getRoutes().get(0).getLegs().get(0).getArrival_time().getValue());
+                String arrival_time = String.valueOf(responseObj.getRoutes().get(0).getLegs().get(0).getArrival_time().getText());
 
-                Log.i("Gson startAdress", startAdress);
+                Log.i("Directions startAdress", startAdress);
 
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 
-                Log.i("TAG", "Gson transfer to Main"+departure_time);
+                Log.i("TAG", "Directions transfer to Main"+departure_time);
 
                 // lad være med at ændre på "Extra String",
 
                 intent.putExtra("Extra String",departure_time);
-                String valueName2="Hello again!";
-                intent.putExtra("Extra String2",valueName2);
+                intent.putExtra("Extra String2",headSign);
+                intent.putExtra("Extra String3",duration);
+                intent.putExtra("Extra String4",lineShortName);
+                intent.putExtra("Extra String5",arrival_time);
+                //intent.putExtra("Extra String4",lineShortName);
 
                 // shtart the new activity
                 startActivity(intent);

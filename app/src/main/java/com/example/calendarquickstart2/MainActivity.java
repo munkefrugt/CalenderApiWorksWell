@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     // we are getting the desired arival time in (type)DateTime and the destinationfrom the calendar api.
     // convert time to unix time
     //
-    // send the 3 inputs to the Gson class, togther with the point of origin, that we get from the user.
+    // send the 3 inputs to the Directions class, togther with the point of origin, that we get from the user.
     // to to return the departure.
     // We send the departure time to the alarm clock, that sets the time some time erlier than the departure,
     // default 60 minnuttes.
@@ -43,13 +43,35 @@ public class MainActivity extends AppCompatActivity {
             String value = extras.getString("Extra String");
             Log.i("TAG",value);
             String value2 = extras.getString("Extra String2");
-            Log.i("TAG",value);
+            Log.i("TAG",value2);
 
-            TextView view = (TextView) findViewById(R.id.editDeparture);
+            String value3 = extras.getString("Extra String3");
+            Log.i("TAG",value3);
+            String value4 = extras.getString("Extra String4");
+            Log.i("TAG",value4);
+            String value5 = extras.getString("Extra String5");
+            Log.i("TAG",value5);
+
+            //String value6 = extras.getString("Extra String4");
+            //Log.i("TAG",value6);
+
+            TextView view = (TextView) findViewById(R.id.edit_departure);
             view.setText(value);
 
             TextView view2 = (TextView) findViewById(R.id.headSign);
             view2.setText(value2);
+
+            TextView view3 = (TextView) findViewById(R.id.duration);
+            view3.setText(value3);
+
+            TextView view4 = (TextView) findViewById(R.id.lineShortName);
+            view4.setText(value4);
+
+            TextView view5 = (TextView) findViewById(R.id.arrival_time_directions);
+            view5.setText(value5);
+
+            //TextView view6 = (TextView) findViewById(R.id.);
+            //view6.setText(value6);
 
         }
 
@@ -82,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
         // shtart the new activity
 
-        Intent intentGson = new Intent(getApplicationContext(), Gson.class);
+        Intent intentGson = new Intent(getApplicationContext(), Directions.class);
         startActivity(intentGson);
 
 

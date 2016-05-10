@@ -165,7 +165,7 @@ public class Calendar extends Activity
                 // check the value
                 Log.i("eventTimeMillis", "onClick: "+eventTimeMillis);
 
-                Intent intentGson = new Intent(getApplicationContext(), Gson.class);
+                Intent intentGson = new Intent(getApplicationContext(), Directions.class);
                 intentGson.putExtra("destination",destination);
                 intentGson.putExtra("eventTimeMillis",eventTimeMillis);
                 intentGson.putExtra("eventName",eventName);
