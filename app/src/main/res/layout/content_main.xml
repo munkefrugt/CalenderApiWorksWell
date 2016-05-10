@@ -26,17 +26,17 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="origin"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/textView5"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/start_Adress"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_alignStart="@+id/duration" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="destination"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/textView3"
+        android:id="@+id/destination"
+        android:layout_below="@+id/start_Adress"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -46,7 +46,7 @@
         android:text="line name"
         android:id="@+id/lineShortName"
         android:layout_alignTop="@+id/headSign"
-        android:layout_toStartOf="@+id/textView3" />
+        android:layout_toStartOf="@+id/start_Adress" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -54,9 +54,9 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Directions arrival time"
         android:id="@+id/arrival_time_directions"
+        android:layout_marginTop="38dp"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/lineShortName"
-        android:layout_marginTop="39dp" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -64,8 +64,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="event name"
         android:id="@+id/textView7"
-        android:layout_below="@+id/textView4"
-        android:layout_alignStart="@+id/textView4" />
+        android:layout_below="@+id/destination"
+        android:layout_alignStart="@+id/destination" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -84,7 +84,7 @@
         android:text="eventEndTime"
         android:id="@+id/textView8"
         android:layout_below="@+id/textView7"
-        android:layout_alignEnd="@+id/textView4" />
+        android:layout_alignEnd="@+id/destination" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -103,4 +103,22 @@
         android:id="@+id/duration"
         android:layout_below="@+id/edit_departure"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="start Location"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/textView5"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="destination"
+        android:id="@+id/textView6"
+        android:layout_alignTop="@+id/destination"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

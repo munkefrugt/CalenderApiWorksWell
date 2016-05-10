@@ -142,7 +142,7 @@ public class Directions extends AppCompatActivity {
                 //departure_time =responseObj.getRoutes().get(0).getLegs().get(0).getEnd_address();
                 // husk man kan få arrival time i unix eller i am/pm
                 String arrival_time = String.valueOf(responseObj.getRoutes().get(0).getLegs().get(0).getArrival_time().getText());
-
+                String start_Adress = String.valueOf(responseObj.getRoutes().get(0).getLegs().get(0).getStart_address());
                 Log.i("Directions startAdress", startAdress);
 
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
@@ -156,7 +156,7 @@ public class Directions extends AppCompatActivity {
                 intent.putExtra("Extra String3",duration);
                 intent.putExtra("Extra String4",lineShortName);
                 intent.putExtra("Extra String5",arrival_time);
-                //intent.putExtra("Extra String4",lineShortName);
+                intent.putExtra("Extra String6",start_Adress);
 
                 // shtart the new activity
                 startActivity(intent);

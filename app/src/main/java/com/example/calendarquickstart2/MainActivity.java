@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
             Log.i("TAG",value4);
             String value5 = extras.getString("Extra String5");
             Log.i("TAG",value5);
+            String value6 = extras.getString("Extra String6");
+            Log.i("TAG",value6);
 
             //String value6 = extras.getString("Extra String4");
             //Log.i("TAG",value6);
@@ -70,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
             TextView view5 = (TextView) findViewById(R.id.arrival_time_directions);
             view5.setText(value5);
 
-            //TextView view6 = (TextView) findViewById(R.id.);
-            //view6.setText(value6);
+            TextView view6 = (TextView) findViewById(R.id.start_Adress);
+            view6.setText(value6);
 
         }
 
